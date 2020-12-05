@@ -13,6 +13,17 @@
 * ✅ JavaScript
 
 <br>
+
+<h2> Aprendizado com este Projeto </h2>
+
+* ✅ Manipulação do DOM
+* ✅ Eventos de Click e Teclado (KeyPress)
+* ✅ Propriedades createElement, SetAttribute, addEventListener e createElement
+* ✅ Introdução ao LocalStorage
+* ✅ Salvar arquivos, deletar Arquivos
+
+<br>
+
 <h2> 💻📲 Como usar 💻📲 </h2>
 
 * 📱💻 Baixe o Zip e execute o Index.html
