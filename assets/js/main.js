@@ -28,7 +28,7 @@ const limpaInput = () => {
 
 const criaTarefa = (tarefa) => {
   const li = criaLi();
-  li.innerHTML = tarefa.value;
+  li.innerText = tarefa.value;
   tarefas.appendChild(li);
   limpaInput();
   criarButtonApagar(li);
@@ -59,4 +59,12 @@ const salvarTarefa = () => {
   const tarefasJSON = JSON.stringify(listaDeTarefas);
   localStorage.setItem('tarefas', tarefasJSON); 
 }
-
+const adicionaTarefasSalvas= () => {
+  const tarefas = localStorage.getItem('tarefas');
+  const listaDeTarefas = JSON.parse(tarefas)
+  console.log(listaDeTarefas);
+  for(let tarefa of listaDeTarefas){
+    criaTarefa(tarefa)
+  }
+}
+adicionaTarefasSalvas();
