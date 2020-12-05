@@ -1,39 +1,52 @@
-const relogio = () => {
-  const getTimeFromSeconds = (segundos) => {
-    const data = new Date(segundos * 1000);
-    return data.toLocaleTimeString("pt-br", { hour12: false, timeZone: "GMT" });
-  };
+const inputNovaTarefa = document.querySelector('.input-nova-tarefa');
+const btnAddTarefa = document.querySelector('.btn-add-tarefa');
+const tarefas = document.querySelector('.tarefas');
 
-  const relogio = document.querySelector(".relogio");
-  let segundos = 0;
-  let timer;
 
-  const inicaRelogio = () => {
-    timer = setInterval(() => {
-      segundos++;
-      relogio.innerHTML = getTimeFromSeconds(segundos);
-    }, 1000);
-  };
+const criarButtonApagar = (li) => {
+  const botaoApagar = document.createElement('button')
+  botaoApagar.innerText = 'Apagar'
+  botaoApagar.setAttribute('class', 'apagar')
+  li.appendChild(botaoApagar)
 
-  document.addEventListener("click", (e) => {
-    const el = e.target;
-    if (el.classList.contains("resetar")) {
-      relogio.classList.remove("pausado");
-      clearInterval(timer);
-      segundos = 0;
-      relogio.innerHTML = "00:00:00";
-    }
-    if (el.classList.contains("pausar")) {
-      relogio.classList.add("pausado");
-      clearInterval(timer);
-    }
-    if (el.classList.contains("iniciar")) {
-      clearInterval(timer);
-      relogio.classList.remove("pausado");
-      inicaRelogio();
-    }
-  });
-};
+}
 
-relogio()
 
+const criaLi = () => {
+  const li = document.createElement('li');
+  return li
+}
+
+inputNovaTarefa.addEventListener('keypress', (e) =>{
+  if(e.keyCode === 13){
+    if(!inputNovaTarefa.value) return;
+    criaTarefa(inputNovaTarefa)
+  }
+})
+
+const limpaInput = () =>{
+  inputNovaTarefa.value = '';
+  inputNovaTarefa.focus();
+}
+
+const criaTarefa = (tarefa) => {
+  const li = criaLi();
+  li.innerHTML = tarefa.value
+  tarefas.appendChild(li)
+  limpaInput()
+  criarButtonApagar(li)
+}
+btnAddTarefa.addEventListener('click',(e) => {
+    if(!inputNovaTarefa.value) return;
+    criaTarefa(inputNovaTarefa)
+})
+
+
+
+document.addEventListener('click', (e) => {
+  const el = e.target;
+  if(el.classList.contains('apagar')){
+    el.parentNode.remove();
+  
+  }
+})
