@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(17, 86, 102);
+  --primary-color-darker: rgb(9, 48, 56);
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--primary-color);
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+.container {
+  max-width: 640px;
+  margin:3rem auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+.container h1,h2{
+  margin:5px 0;
+}
+
+form input, form label, form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+form input {
+  font-size: 24px;
+  height: 50px;
+  padding: 0 20px;
+}
+
+form input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
+form button {
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+form button:hover {
+  background: var(--primary-color-darker);
+}
+
+.imc-resultado{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 30px;
+}
+
+.imc-resultado .imc{
+  margin-right: 80px;
+}
+
+.p-resultado{
+  text-align: center;
+  background-color: var(--primary-color);
+  color: #fff;
+  margin-top: 5px;
+}
+
+.relogio{
+  font-size: 3rem;
+  margin: 2rem 0;
+}
+
+button{
+  padding:.5rem ;
+}
+
+.pausado {
+  color: red;
+}
